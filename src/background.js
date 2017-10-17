@@ -9,6 +9,15 @@ import BadgeController from 'Background/BadgeController';
 let options = Storage.load();
 let robotTicker = new RobotTicker(options);
 
+
+const checkIcon = (options) => {
+    if (options.enable) {
+        BadgeController.changeImage('logo_enable.png');
+    } else {
+        BadgeController.changeImage('logo_disable.png');
+    }
+};
+
 /**
  * @param request
  * @param sender
@@ -30,9 +39,8 @@ const extensionEventListener = (request, sender, sendResponse) => {
             options = Storage.load();
 
             robotTicker.setOptions(options);
+            checkIcon(options);
             robotTicker.startFetching();
-
-            console.log(options);
 
             sendResponse({success: true});
             break;
@@ -44,6 +52,7 @@ const initBackground = () => {
     ExtensionPlatform.getExtension().extension.onMessage.addListener(extensionEventListener);
 
     BadgeController.updateBudgetColor('#11a0ff');
+    checkIcon(options);
     robotTicker.startFetching();
 };
 

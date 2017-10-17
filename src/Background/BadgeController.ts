@@ -14,4 +14,10 @@ export default class BadgeController {
             title: text
         });
     }
+
+    static changeImage(imageName: string) {
+        browserAction.setIcon({
+            path: '/images/' + imageName
+        });
+    }
 }
