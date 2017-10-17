@@ -1,0 +1,68 @@
+@import "fonts";
+@import "variable";
+@import "cleaner";
+
+html {
+    width: 300px;
+    max-width: 300px;
+}
+
+body {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    font-size: 16px;
+    background: white;
+    color: rgb(38, 38, 38);
+    font-family: $font;
+}
+
+.application {
+    padding: 16px;
+}
+
+.options-row {
+    display: block;
+    padding: 8px 0;
+
+    & > b {
+        font-size: 12px;
+        display: inline-block;
+        width: 80px;
+        vertical-align: middle;
+    }
+
+    & > input {
+        &[type='checkbox'] {
+            cursor: pointer;
+            height: 14px;
+            width: 14px;
+            display: inline-block;
+            border-radius: 2px;
+            background: rgb(200, 100, 100);
+            vertical-align: middle;
+            &:checked {
+                background: rgb(100, 200, 100);
+            }
+        }
+
+        &[type='text'] {
+            vertical-align: middle;
+            width: 160px;
+            font-size: 12px;
+            border: 1px solid rgb(200, 200, 200);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }
+}
+
+.options-save {
+    font-size: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    background: $color-blue;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}

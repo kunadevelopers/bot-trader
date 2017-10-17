@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Kuna Robots",
+    "version": "0.0.1",
+    "short_name": "Kuna Robots",
+    "description": "Kuna Robots",
+    "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "144": "/images/kuna_144.png"
+    },
+    "background": {
+        "page": "/views/background.html"
+    },
+    "browser_action": {
+        "default_icon": {
+            "144": "/images/kuna_144.png"
+        },
+        "default_popup": "/views/popup.html",
+        "default_title": "Kuna Robots"
+    }
+}
