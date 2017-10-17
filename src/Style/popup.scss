@@ -3,13 +3,13 @@
 @import "cleaner";
 
 html {
-    width: 300px;
-    max-width: 300px;
+    width: 400px;
+    max-width: 400px;
 }
 
 body {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     overflow: hidden;
     font-size: 16px;
     background: white;
@@ -48,24 +48,29 @@ body {
 
         &[type='text'] {
             vertical-align: middle;
-            width: 160px;
+            width: 240px;
             font-size: 12px;
             border: 1px solid rgb(200, 200, 200);
-            padding: 4px 8px;
+            padding: 8px 8px;
             border-radius: 4px;
         }
     }
 }
 
 .options-save {
-    font-size: 12px;
+    font-size: 14px;
     padding: 8px 16px;
+    margin-top: 16px;
     text-align: center;
     background: $color-blue;
     border-radius: 4px;
     cursor: pointer;
     color: white;
     &:hover {
-        background: darken($color-blue, 0.1);
+        background: darken($color-blue, 5%);
+    }
+
+    &:active {
+        background: darken($color-blue, 10%);
     }
 }
