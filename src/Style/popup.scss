@@ -65,4 +65,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     color: white;
+    &:hover {
+        background: darken($color-blue, 0.1);
+    }
 }

@@ -49,7 +49,7 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
     render() {
         return (
             <div>
-                <label className="options-row">
+                <div className="options-row">
                     <b>Enable:</b>
                     <input
                         type="checkbox"
@@ -57,8 +57,8 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
                         onChange={this.onChangeCheckbox.bind(this)}
                         name="enable"
                     />
-                </label>
-                <label className="options-row">
+                </div>
+                <div className="options-row">
                     <b>USD / UAH:</b>
                     <input
                         type="text"
@@ -66,8 +66,8 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
                         onChange={this.onChangeOptionInput.bind(this)}
                         name="usd_uah"
                     />
-                </label>
-                <label className="options-row">
+                </div>
+                <div className="options-row">
                     <b>Percent:</b>
                     <input
                         type="text"
@@ -75,9 +75,9 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
                         onChange={this.onChangeOptionInput.bind(this)}
                         name="percent"
                     />
-                </label>
+                </div>
 
-                <label className="options-row">
+                <div className="options-row">
                     <b>Api key:</b>
                     <input
                         type="text"
@@ -85,9 +85,9 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
                         onChange={this.onChangeOptionInput.bind(this)}
                         name="apiKey"
                     />
-                </label>
+                </div>
 
-                <label className="options-row">
+                <div className="options-row">
                     <b>Api Secret:</b>
                     <input
                         type="text"
@@ -95,7 +95,7 @@ class HomeScreen extends React.Component<any, HomeComponentStateInterface> {
                         onChange={this.onChangeOptionInput.bind(this)}
                         name="apiSecret"
                     />
-                </label>
+                </div>
 
                 <button
                     className="options-save"
