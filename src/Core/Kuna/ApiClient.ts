@@ -9,7 +9,7 @@ export default class KunApiClient {
     private apiKey: string;
     private apiSecret: string;
 
-    private domain: string = 'https://kuna.io';
+    private domain: string = 'https://kuna.io'; // 'https://staging.kuna.io'
     private basePath: string = '/api/v2';
 
     constructor() {
@@ -23,23 +23,20 @@ export default class KunApiClient {
         this.apiSecret = apiSecret;
     }
 
+    private handleRequestError = (error: AxiosError) => {
+        const {response = null} = error;
+
+        throw error;
+    };
+
     extractTicker(tickerKey: string) {
 
         const onSuccess = (response: AxiosResponse) => {
             return response.data.ticker;
         };
-
-        const onError = (error: AxiosError) => {
-
-            const {response = null} = error;
-
-            console.error(error);
-            console.error(response);
-        };
-
         return this.axiosClient
             .get(`/tickers/${tickerKey}`)
-            .then(onSuccess, onError);
+            .then(onSuccess, this.handleRequestError);
     }
 
     static orderObject(unordered: Object): Object {
@@ -70,17 +67,9 @@ export default class KunApiClient {
             };
         };
 
-        const onError = (error: AxiosError) => {
-
-            const {response = null} = error;
-
-            console.error(error);
-            console.error(response);
-        };
-
         return this.axiosClient
             .get(`/order_book?market=${tickerKey}`)
-            .then(onSuccess, onError);
+            .then(onSuccess, this.handleRequestError);
     }
 
     private sendPrivateRequest(method: string, path: string, requestParams: any) {
@@ -129,12 +118,7 @@ export default class KunApiClient {
             return response.data;
         };
 
-        const onError = (error: AxiosError) => {
-            console.log(error);
-            return error;
-        };
-
-        return axiosPromise.then(onSuccess, onError);
+        return axiosPromise.then(onSuccess, this.handleRequestError);
     }
 
     extractMyTrades(market: string) {
